@@ -4,8 +4,8 @@
   gather_facts: yes
 
   roles:
-    #- geerlingguy.nfs
-    - { role: it-praktyk.packer-debian, vmware_install_open_vm_tools: "{{vmware_install_open_vm_tools}}" }
+    - geerlingguy.nfs
+    - { role: it-praktyk.packer-debian, vmware_install_open_vm_tools: '{{vmware_install_open_vm_tools}}' }
 
   tasks:
 
