@@ -1,3 +1,5 @@
 #!/bin/bash -eux
 
-reboot
+if [ -f /var/run/reboot-required ]; then
+        reboot
+fi

@@ -1,4 +1,8 @@
 {
+
+  "variables": {
+    "vmware_install_open_vm_tools": "true"
+  },
   "provisioners": [
     {
       "type": "shell",
@@ -21,7 +25,7 @@
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
       "script": "scripts/reboot.sh"
     },
-        {
+    {
       "type": "shell",
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
       "script": "scripts/setup.sh",
@@ -30,7 +34,8 @@
     {
       "type": "ansible-local",
       "playbook_file": "ansible/main.yml",
-      "galaxy_file": "requirements.yml"
+      "galaxy_file": "requirements.yml",
+      "extra_arguments": ["--extra-vars \"vmware_install_open_vm_tools={{user `vmware_install_open_vm_tools`}}\""]
     },
     {
       "type": "shell",

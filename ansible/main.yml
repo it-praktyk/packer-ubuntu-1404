@@ -4,11 +4,18 @@
   gather_facts: yes
 
   roles:
-    - geerlingguy.nfs
-    - it-praktyk.packer-debian
+    #- geerlingguy.nfs
+    - { role: it-praktyk.packer-debian, vmware_install_open_vm_tools: "{{vmware_install_open_vm_tools}}" }
 
   tasks:
-    - apt: "name={{ item }} state=installed"
+
+    - name: "Display value of vmware_install_open_vm_tools"
+      debug:
+        var: "{{ vmware_install_open_vm_tools }}"
+
+   
+    - name: Install 
+      apt: "name={{ item }} state=installed"
       with_items:
         - git
         - wget
