@@ -1,5 +1,7 @@
 ---
 
 - src: geerlingguy.nfs
-- src: geerlingguy.packer-debian
+- src: https://github.com/it-praktyk/ansible-role-packer-debian
+  version: test-boolean
+  name: geerlingguy.packer-debian
 
